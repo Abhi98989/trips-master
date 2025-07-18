@@ -1,0 +1,350 @@
+{
+  "treks": [
+    {
+      "title": "Mardi Himal Trek",
+      "duration": "6 Days / 5 Nights",
+      "region": "Annapurna",
+      "route": [
+        "Pokhara", "Kande", "Deurali", "Forest Camp", "Low Camp", "High Camp", "Mardi Base Camp", "Sidhing", "Pokhara"
+      ],
+      "maxAltitude": "4500m",
+      "difficulty": "Moderate",
+      "accommodation": ["Tea houses", "Homestays"],
+      "bestSeasons": ["March-May", "September-November"],
+      "trekStyle": "Guided lodge trek",
+      "porterAvailable": true,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Drive to Kande & Trek to Deurali",
+          "altitude": "2100m",
+          "details": [
+            "1-hour scenic drive from Pokhara to Kande",
+            "Trek through rhododendron forest & terraced farmland",
+            "Stay at tea house in Deurali"
+          ],
+          "walkTime": "4 hrs"
+        },
+        {
+          "day": 2,
+          "title": "Deurali to Forest Camp",
+          "altitude": "2600m",
+          "details": [
+            "Beautiful jungle walk with possible views of Machhapuchhre",
+            "Quiet off-the-beaten path"
+          ],
+          "walkTime": "5-6 hrs"
+        },
+        {
+          "day": 3,
+          "title": "Forest Camp to High Camp",
+          "altitude": "3580m",
+          "details": [
+            "Stunning ridge trail with panoramic mountain views",
+            "Stay above the clouds"
+          ],
+          "walkTime": "6 hrs"
+        },
+        {
+          "day": 4,
+          "title": "Hike to Mardi Himal Base Camp & return to Low Camp",
+          "altitude": "4500m",
+          "details": [
+            "Early morning hike to Mardi Base Camp",
+            "Unbeatable sunrise & Himalayan scenery",
+            "Trek back down to Low Camp"
+          ],
+          "walkTime": "7–8 hrs"
+        },
+        {
+          "day": 5,
+          "title": "Trek to Sidhing & Drive to Pokhara",
+          "altitude": "1850m",
+          "details": [
+            "Final walk through forest & traditional villages",
+            "Jeep ride back to Pokhara"
+          ],
+          "walkTime": "3 hrs",
+          "driveTime": "2 hrs"
+        },
+        {
+          "day": 6,
+          "title": "Leisure Day in Pokhara / Optional Activities",
+          "details": [
+            "Rest day, boating, massage, shopping, or travel onward",
+            "Optional: Paragliding, ZipFlyer, City Tour"
+          ]
+        }
+      ],
+      "pricing": {
+        "1 Person": 490,
+        "2-3 People": 360,
+        "4-6 People": 300,
+        "7+ People": 270,
+        "Nepali": "NPR 18000–24000",
+        "porterService": "USD 20/day"
+      },
+      "inclusions": [
+        "Pickup & drop-off in Pokhara",
+        "Jeep/Bus transportation",
+        "3 meals/day",
+        "Twin-sharing accommodation",
+        "TIMS & ACAP permits",
+        "English-speaking local guide",
+        "First Aid Kit",
+        "Certificate of Completion",
+        "Local cultural experience"
+      ],
+      "exclusions": [
+        "Hotel in Pokhara before/after trek",
+        "Personal expenses",
+        "Travel insurance",
+        "Tips for guide/porter",
+        "Extra days/activities"
+      ],
+      "packingList": [
+        "Warm layers (down jacket, fleece)",
+        "Trekking shoes",
+        "Daypack & rain cover",
+        "Water bottle (with filter optional)",
+        "Sunglasses, sunscreen, gloves, hat",
+        "Flashlight/headlamp",
+        "Basic medicine/personal items"
+      ],
+      "contact": {
+        "website": "treknepalnow.com",
+        "phone": "+977-9806689146",
+        "email": "gaajohn66@gmail.com",
+        "instagram": "treknepalnow7",
+        "facebook": "treknepalnow7",
+        "youtube": "Treknepalnow-gaa",
+        "location": "Lakeside, Pokhara"
+      },
+      "image": "images/img_1.jpg"
+    },
+    {
+      "title": "Ghorepani Poon Hill Trek",
+      "duration": "5 Days / 4 Nights",
+      "season": "Autumn 2025 (September to November)",
+      "location": "Annapurna Region, Nepal",
+      "trekGrade": "Easy to Moderate",
+      "maxAltitude": "3210m",
+      "bestFor": ["First-time trekkers", "Families", "Photographers"],
+      "highlights": [
+        "Sunrise view from Poon Hill (Annapurna & Dhaulagiri ranges)",
+        "Traditional Gurung & Magar villages",
+        "Rhododendron forests & waterfalls",
+        "Live local experience with homestays",
+        "Guided photography spots & local storytelling"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Pokhara – Nayapul – Tikhedhunga / Ulleri",
+          "details": [
+            "Drive from Pokhara (1.5 hours)",
+            "Trek to Tikhedhunga/Ulleri (4–5 hours)",
+            "Overnight at local teahouse"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Ulleri – Ghorepani (2874m)",
+          "details": [
+            "Trek through rhododendron forests & Magar villages (6 hours)",
+            "Views of Mt. Annapurna South",
+            "Overnight at Ghorepani"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Poon Hill Sunrise Hike – Tadapani",
+          "details": [
+            "Early hike to Poon Hill (3210m)",
+            "View: Annapurna, Dhaulagiri, Machhapuchhre",
+            "Return to Ghorepani and trek to Tadapani (5 hrs)"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Tadapani – Ghandruk",
+          "details": [
+            "Trek to Gurung village Ghandruk (3–4 hrs)",
+            "Visit Gurung museum, cultural immersion",
+            "Overnight at Ghandruk homestay or teahouse"
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Ghandruk – Nayapul – Pokhara",
+          "details": [
+            "Easy descent to Nayapul (4 hrs)",
+            "Drive to Pokhara (1.5 hrs)",
+            "End of trek"
+          ]
+        }
+      ],
+      "pricePackages": {
+        "Standard": {
+          "price": 350,
+          "minGroupSize": 2,
+          "includes": [
+            "All ground transportation",
+            "4 nights accommodation",
+            "All meals",
+            "Licensed English-speaking guide",
+            "TIMS card and ACAP permit",
+            "Trekking map and first aid"
+          ]
+        },
+        "Budget": {
+          "price": 180,
+          "includes": [
+            "TIMS & ACAP permit",
+            "English-speaking local guide",
+            "Route map and consultation"
+          ],
+          "note": "Accommodation/food not included"
+        },
+        "Luxury": {
+          "price": 500,
+          "includes": [
+            "Everything from standard",
+            "Private rooms with bathrooms (where available)",
+            "Porters (1 per 2 trekkers)",
+            "Hot shower, wifi, charging",
+            "Traditional Gurung dinner experience"
+          ]
+        }
+      },
+      "packingList": [
+        "Trekking shoes",
+        "Warm clothes",
+        "Rain jacket",
+        "Sunscreen",
+        "Water bottles",
+        "Trekking poles",
+        "Camera & power bank",
+        "Personal medicine"
+      ],
+      "contact": {
+        "website": "treknepalnow.com",
+        "instagram": "@treknepalnow7",
+        "phone": "+977-9806689146",
+        "youtube": "@Treknepalnow-gaa"
+      },
+      "offer": "Free walking stick + Nepali tea on arrival",
+      "image": "images/img_2.jpg"
+    }
+  ],
+  "trekCategories": {
+    "shortTreks": [
+      "Dhampus Trek (1–2 days)",
+      "Australian Camp Trek (1–2 days)",
+      "Sarangkot – Naudanda Hike (Day hike)",
+      "Panchase Trek (2–3 days)",
+      "Ghandruk Trek (2–3 days)",
+      "Sikles Trek (3–4 days)",
+      "Mardi Himal Trek – Short Version (3–4 days)"
+    ],
+    "moderateTreks": [
+      "Mardi Himal Trek (5–7 days)",
+      "Ghorepani Poon Hill Trek (4–6 days)",
+      "Khopra Danda Trek (6–9 days)",
+      "Mohare Danda Trek (5–7 days)",
+      "Royal Trek (3–5 days)",
+      "Annapurna Base Camp (ABC) Trek (7–10 days)"
+    ],
+    "longTreks": [
+      "Annapurna Circuit Trek (12–20 days)",
+      "Dhaulagiri Circuit Trek (15–20 days)",
+      "Upper Mustang Trek (12–18 days)",
+      "Nar Phu Valley Trek (12–20 days)",
+      "Tilicho Lake Trek (12–18 days)"
+    ]
+  },
+  "sightseeingPokhara": {
+    "naturalAttractions": [
+      "Phewa Lake",
+      "Begnas Lake",
+      "Rupa Lake",
+      "Devi’s Falls",
+      "Gupteshwor Mahadev Cave",
+      "Bat Cave",
+      "Mahendra Cave",
+      "Seti River Gorge",
+      "Peace Pagoda (Shanti Stupa)",
+      "Sarangkot Viewpoint",
+      "Pumdikot Shiva Statue",
+      "Matepani Gumba",
+      "Bindhyabasini Temple",
+      "Kahun Danda",
+      "Thulakot Hill"
+    ],
+    "adventures": [
+      "Paragliding from Sarangkot",
+      "Ultralight Flight",
+      "Zipline",
+      "Bungee Jump (Hemja)",
+      "Mountain Biking Trails (Pame, Sarangkot, etc.)"
+    ],
+    "museumsCulture": [
+      "International Mountain Museum",
+      "Gurkha Museum",
+      "Annapurna Butterfly Museum",
+      "Ethnographic Museum",
+      "Tibetan Refugee Camp (Handicrafts & culture)"
+    ]
+  },
+  "motorbikingRoutes": [
+    {
+      "route": "Pokhara → Sarangkot → Naudanda → Pame Loop",
+      "duration": "Half to full day",
+      "views": "Himalayas, Phewa Lake, local villages",
+      "tip": "Great for sunrise or sunset; easy to moderate roads"
+    },
+    {
+      "route": "Pokhara → Begnas Lake → Sundari Danda",
+      "duration": "Half-day",
+      "views": "Lakes, hills, peaceful countryside",
+      "tip": "Less touristy; swim or relax by the lake"
+    },
+    {
+      "route": "Pokhara → Pumdikot Shiva Statue → Peace Stupa → Lakeside",
+      "duration": "3–4 hours",
+      "views": "Panoramic view of Pokhara & mountains",
+      "tip": "Do this for a spiritual + scenic combo ride"
+    },
+    {
+      "route": "Pokhara → Ghandruk (via Nayapul)",
+      "duration": "Full-day ride (return or overnight)",
+      "road": "Rough after Nayapul, suitable for dirt/adventure bikes",
+      "tip": "Traditional Gurung village and great views of Annapurna South & Machhapuchhre"
+    },
+    {
+      "route": "Pokhara → Dhampus → Australian Camp",
+      "duration": "Day trip",
+      "road": "Moderate to rough (off-road bikes recommended)",
+      "tip": "Can combine with short hike to the viewpoint"
+    },
+    {
+      "route": "Pokhara → Tatopani → Muktinath → Upper Mustang",
+      "duration": "4–10 days",
+      "road": "Rough, high altitude, very adventurous",
+      "tip": "Permit required (ACAP + special permit for Upper Mustang)",
+      "highlight": "Jomsom, Kagbeni, Muktinath, Lo-Manthang"
+    },
+    {
+      "route": "Pokhara → Tansen → Ridi Bazaar → Lumbini",
+      "duration": "2–3 days",
+      "views": "Hill towns, old trade routes, Buddhist sites",
+      "tip": "Good for a cultural + historical trip"
+    },
+    {
+      "route": "Pokhara → Bandipur via Dumre",
+      "duration": "1 day (return or overnight)",
+      "road": "Mostly highway + hill climb",
+      "highlight": "Traditional Newari town with stunning views"
+    }
+  ]
+}
