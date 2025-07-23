@@ -31,8 +31,6 @@
         <div class="site-mobile-menu-body"></div>
       </div>
 
-
-
       <header class="site-navbar site-navbar-target" role="banner">
 
         <div class="container">
@@ -52,6 +50,8 @@
                   <li class="active"><a href="index.html" class="nav-link">Home</a></li>
                   <li><a href="about.html" class="nav-link">About</a></li>
                   <li><a href="trips.html" class="nav-link">Trips</a></li>
+                  <li><a href="riders_tips.html" class="nav-link">Ride</a></li>
+                  <li><a href="image.html" class="nav-link">Gallery</a></li>
                   <li><a href="blog.html" class="nav-link">Blog</a></li>
                   <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
@@ -70,7 +70,7 @@
           <div class="row align-items-center">
             <div class="col-md-5" data-aos="fade-right">
               <h1 class="mb-3 text-white">Let's Enjoy The Wonders of Nature</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores doloribus officia iste. Dolores.</p>
+              <p>Discover the true joy of adventure—every trip is a chance to explore, grow, and create unforgettable memories. Let the road lead you to moments filled with wonder, laughter, and inspiration.</p>
               <p class="d-flex align-items-center">
                 <a href="https://vimeo.com/191947042" data-fancybox class="play-btn-39282 mr-3"><span class="icon-play"></span></a> 
                 <span class="small">Watch the video</span>
@@ -110,31 +110,7 @@
           </div>
         </div>
         <div class="row">
-          <!-- Start dynamic trek cards from trip.json -->
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_1.jpg" alt="Mardi Himal Trek" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$490.00</a>
-                <h2 class="mb-1"><a href="trip-single.html?trek=0">Mardi Himal Trek</a></h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_2.jpg" alt="Ghorepani Poon Hill Trek" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$350.00</a>
-                <h2 class="mb-1"><a href="trip-single.html?trek=1">Ghorepani Poon Hill Trek</a></h2>
-              </div>
-            </div>
-          </div>
-          <!-- End dynamic trek cards -->
+          <div id="journey-treks-row" class="row"></div>
 
           <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
             <div class="listing-item">
@@ -495,6 +471,172 @@
     <script src="js/aos.js"></script>
 
     <script src="js/main.js"></script>
+    <script>
+      // Use the same trekData as in trips.html
+      const trekData = {
+        "treks": [
+          {
+            "title": "Mardi Himal Trek",
+            "duration": "6 Days / 5 Nights",
+            "region": "Annapurna",
+            "maxAltitude": "4500m",
+            "difficulty": "Moderate",
+            "accommodation": ["Tea houses", "Homestays"],
+            "bestSeasons": ["March-May", "September-November"],
+            "pricing": {
+              "2-3 People": 360,
+              "4-6 People": 300,
+              "7+ People": 270
+            },
+            "highlights": [
+              "Stunning ridge trail with panoramic mountain views",
+              "Unbeatable sunrise & Himalayan scenery",
+              "Quiet off-the-beaten path",
+              "Beautiful jungle walk with views of Machhapuchhre"
+            ],
+            "image": "images/img_1.jpg",
+            "id": "mardi-himal"
+          },
+          {
+            "title": "Ghorepani Poon Hill Trek",
+            "duration": "5 Days / 4 Nights",
+            "region": "Annapurna Region",
+            "maxAltitude": "3210m",
+            "difficulty": "Easy to Moderate",
+            "bestFor": ["First-time trekkers", "Families", "Photographers"],
+            "pricePackages": {
+              "Standard": { "price": 350 },
+              "Budget": { "price": 180 },
+              "Luxury": { "price": 500 }
+            },
+            "highlights": [
+              "Sunrise view from Poon Hill (Annapurna & Dhaulagiri ranges)",
+              "Traditional Gurung & Magar villages",
+              "Rhododendron forests & waterfalls",
+              "Live local experience with homestays"
+            ],
+            "image": "images/img_2.jpg",
+            "id": "ghorepani-poon-hill"
+          },
+          {
+            "title": "Annapurna Base Camp Trek",
+            "duration": "12-15 Days",
+            "region": "Annapurna",
+            "maxAltitude": "4130m",
+            "difficulty": "Moderate",
+            "pricing": { "Standard": 650 },
+            "highlights": [
+              "360-degree mountain panorama",
+              "Diverse landscapes and cultures",
+              "Natural hot springs",
+              "Close-up views of Annapurna massif"
+            ],
+            "image": "images/img_3.jpg",
+            "id": "annapurna-base-camp"
+          },
+          {
+            "title": "Everest Base Camp Trek",
+            "duration": "16-18 Days",
+            "region": "Everest",
+            "maxAltitude": "5364m",
+            "difficulty": "Hard",
+            "pricing": { "Standard": 1200 },
+            "highlights": [
+              "World's highest base camp",
+              "Sherpa culture and monasteries",
+              "Breathtaking mountain views",
+              "Adventure of a lifetime"
+            ],
+            "image": "images/img_4.jpg",
+            "id": "everest-base-camp"
+          },
+          {
+            "title": "Langtang Valley Trek",
+            "duration": "8-10 Days",
+            "region": "Langtang",
+            "maxAltitude": "4984m",
+            "difficulty": "Moderate",
+            "pricing": { "Standard": 450 },
+            "highlights": [
+              "Tamang and Tibetan culture",
+              "Beautiful valley and glaciers",
+              "Less crowded trails",
+              "Sacred lakes and views"
+            ],
+            "image": "images/img_5.jpg",
+            "id": "langtang-valley"
+          },
+          {
+            "title": "Manaslu Circuit Trek",
+            "duration": "14-18 Days",
+            "region": "Manaslu",
+            "maxAltitude": "5106m",
+            "difficulty": "Hard",
+            "pricing": { "Standard": 950 },
+            "highlights": [
+              "Remote and wild terrain",
+              "Cultural diversity",
+              "Spectacular mountain views",
+              "Challenging high passes"
+            ],
+            "image": "images/img_6.jpg",
+            "id": "manaslu-circuit"
+          },
+          {
+            "title": "Upper Mustang Trek",
+            "duration": "12-16 Days",
+            "region": "Mustang",
+            "maxAltitude": "4200m",
+            "difficulty": "Moderate",
+            "pricing": { "Standard": 1100 },
+            "highlights": [
+              "Ancient Tibetan culture",
+              "Unique desert landscape",
+              "Forbidden Kingdom",
+              "Ancient caves and monasteries"
+            ],
+            "image": "images/img_1.jpg",
+            "id": "upper-mustang"
+          },
+          {
+            "title": "Dhaulagiri Circuit Trek",
+            "duration": "18-20 Days",
+            "region": "Dhaulagiri",
+            "maxAltitude": "5360m",
+            "difficulty": "Hard",
+            "pricing": { "Standard": 1300 },
+            "highlights": [
+              "World's 7th highest peak",
+              "Remote wilderness",
+              "Technical challenges",
+              "Pristine mountain environment"
+            ],
+            "image": "images/img_2.jpg",
+            "id": "dhaulagiri-circuit"
+          }
+        ]
+      };
+      // Dynamically load trek cards for the Journey section
+      const treks = trekData.treks || [];
+      const row = document.getElementById('journey-treks-row');
+      row.innerHTML = treks.slice(0, 6).map((trek, idx) => {
+        const price = trek.pricing ? ('$' + (trek.pricing['1 Person'] || trek.pricing['Standard']?.price || trek.pricing['2-3 People'] || trek.pricing['Standard'] || 'N/A')) : (trek.pricePackages ? ('$' + (trek.pricePackages.Standard?.price || 'N/A')) : '$N/A');
+        const img = trek.image || 'images/img_1.jpg';
+        return `
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+            <div class="listing-item" onclick="window.location.href='trip-single.html?trek=${idx}'" style="cursor:pointer;">
+              <div class="listing-image">
+                <img src="${img}" alt="${trek.title}" class="img-fluid">
+              </div>
+              <div class="listing-item-content">
+                <a class="px-3 mb-3 category bg-primary" href="#">${price}</a>
+                <h2 class="mb-1">${trek.title}</h2>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    </script>
 
   </body>
 

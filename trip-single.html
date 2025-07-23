@@ -1,123 +1,476 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Trip Details | Trek Nepal Now</title>
+<head>
+    <title>Trip Details &mdash; Trek Nepal Now</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
     <style>
-      .trip-hero {
-        background-size: cover;
-        background-position: center;
-        min-height: 350px;
-        position: relative;
-        color: #fff;
-        display: flex;
-        align-items: flex-end;
-        padding: 2rem;
-      }
-      .trip-hero-overlay {
-        background: rgba(0,0,0,0.5);
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        z-index: 1;
-      }
-      .trip-hero-content {
-        position: relative;
-        z-index: 2;
-      }
-      .trip-section {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-      }
-      .trip-label {
-        font-weight: 600;
-        color: #007bff;
-      }
-      .itinerary-day {
-        margin-bottom: 1.5rem;
-      }
-      .back-btn {
-        margin-top: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="trip-content">
-      <!-- Content will be injected by JS -->
-    </div>
-    <div class="container back-btn">
-      <a href="index.html" class="btn btn-outline-primary">&larr; Back to Home</a>
-    </div>
-    <script>
-      async function loadTrip() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const trekIndex = parseInt(urlParams.get('trek'), 10);
-        const res = await fetch('trip.json');
-        const data = await res.json();
-        const trek = data.treks[trekIndex];
-        if (!trek) {
-          document.getElementById('trip-content').innerHTML = '<div class="container"><div class="alert alert-danger mt-5">Trip not found.</div></div>';
-          return;
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #17a2b8;
+            --accent-color: #ffc107;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
         }
-        // Compose HTML
-        let html = `
-          <div class="trip-hero" style="background-image: url('${trek.image || 'images/hero_1.jpg'}')">
-            <div class="trip-hero-overlay"></div>
-            <div class="container trip-hero-content">
-              <h1 class="display-4">${trek.title || ''}</h1>
-              <p class="lead mb-0">${trek.duration || ''} ${trek.region ? ' | ' + trek.region : (trek.location ? ' | ' + trek.location : '')}</p>
-            </div>
-          </div>
-          <div class="container trip-section">
-            <div class="row">
-              <div class="col-md-8">
-                <h3>Overview</h3>
-                <ul class="list-unstyled">
-                  ${trek.difficulty ? `<li><span class='trip-label'>Difficulty:</span> ${trek.difficulty}</li>` : (trek.trekGrade ? `<li><span class='trip-label'>Trek Grade:</span> ${trek.trekGrade}</li>` : '')}
-                  ${trek.maxAltitude ? `<li><span class='trip-label'>Max Altitude:</span> ${trek.maxAltitude}</li>` : ''}
-                  ${trek.bestSeasons ? `<li><span class='trip-label'>Best Seasons:</span> ${Array.isArray(trek.bestSeasons) ? trek.bestSeasons.join(', ') : trek.bestSeasons}</li>` : ''}
-                  ${trek.bestFor ? `<li><span class='trip-label'>Best For:</span> ${Array.isArray(trek.bestFor) ? trek.bestFor.join(', ') : trek.bestFor}</li>` : ''}
-                  ${trek.trekStyle ? `<li><span class='trip-label'>Trek Style:</span> ${trek.trekStyle}</li>` : ''}
-                  ${trek.porterAvailable !== undefined ? `<li><span class='trip-label'>Porter Available:</span> ${trek.porterAvailable ? 'Yes' : 'No'}</li>` : ''}
-                </ul>
-                ${trek.highlights ? `<h4>Highlights</h4><ul>${trek.highlights.map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
-                ${trek.route ? `<h4>Route</h4><p>${Array.isArray(trek.route) ? trek.route.join(' &rarr; ') : trek.route}</p>` : ''}
-                ${trek.offer ? `<div class='alert alert-success'><strong>Special Offer:</strong> ${trek.offer}</div>` : ''}
-                ${trek.inclusions ? `<h4>Inclusions</h4><ul>${trek.inclusions.map(i => `<li>${i}</li>`).join('')}</ul>` : ''}
-                ${trek.exclusions ? `<h4>Exclusions</h4><ul>${trek.exclusions.map(i => `<li>${i}</li>`).join('')}</ul>` : ''}
-                ${trek.packingList ? `<h4>Packing List</h4><ul>${trek.packingList.map(i => `<li>${i}</li>`).join('')}</ul>` : ''}
-              </div>
-              <div class="col-md-4">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h4 class="card-title">Pricing</h4>
-                    <ul class="list-unstyled">
-                      ${trek.pricing ? Object.entries(trek.pricing).map(([k,v]) => `<li><span class='trip-label'>${k}:</span> ${v}</li>`).join('') : ''}
-                      ${trek.pricePackages ? Object.entries(trek.pricePackages).map(([k,v]) => `<li><span class='trip-label'>${k}:</span> $${v.price}${v.note ? ' <small>(' + v.note + ')</small>' : ''}<ul>${v.includes ? v.includes.map(i => `<li>${i}</li>`).join('') : ''}</ul></li>`).join('') : ''}
-                    </ul>
-                  </div>
+        body {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: var(--light-color);
+        }
+        .site-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .site-logo img {
+            height: 50px;
+        }
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        .trip-detail-hero {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.9), rgba(23, 162, 184, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e8" width="1200" height="600"/><path fill="%23d4edda" d="M0,300L48,316.7C96,333,192,367,288,350C384,333,480,267,576,233.3C672,200,768,200,864,216.7C960,233,1056,267,1152,266.7C1248,267,1344,233,1392,216.7L1440,200V600H1392C1344,600,1248,600,1152,600C1056,600,960,600,864,600C768,600,672,600,576,600C480,600,384,600,288,600C192,600,96,600,48,600H0Z"/></svg>');
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        .trip-detail-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .trip-detail-section {
+            padding: 60px 0 40px;
+        }
+        .trip-detail-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-top: -120px;
+            position: relative;
+        }
+        .trip-detail-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .trip-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 1rem;
+        }
+        .trip-meta span {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .difficulty-badge {
+            padding: 6px 16px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        .difficulty-easy {
+            background: rgba(40, 167, 69, 0.9);
+            color: white;
+        }
+        .difficulty-moderate {
+            background: rgba(255, 193, 7, 0.9);
+            color: var(--dark-color);
+        }
+        .difficulty-hard {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+        }
+        .trip-highlights {
+            margin-bottom: 25px;
+        }
+        .trip-highlights ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .trip-highlights li {
+            padding: 7px 0;
+            color: #666;
+            font-size: 1rem;
+        }
+        .trip-highlights li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .trip-pricing {
+            margin-bottom: 25px;
+        }
+        .trip-pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .trip-pricing-table th, .trip-pricing-table td {
+            border: 1px solid #eee;
+            padding: 8px 16px;
+            text-align: left;
+        }
+        .trip-pricing-table th {
+            background: var(--light-color);
+        }
+        .back-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: var(--secondary-color);
+        }
+        @media (max-width: 768px) {
+            .trip-detail-card {
+                padding: 20px;
+            }
+            .trip-detail-hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-navbar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="site-logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Trek Nepal Now" class="img-fluid">
+                    </a>
                 </div>
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h4 class="card-title">Contact</h4>
-                    <ul class="list-unstyled">
-                      ${trek.contact ? Object.entries(trek.contact).map(([k,v]) => `<li><span class='trip-label'>${k.charAt(0).toUpperCase() + k.slice(1)}:</span> ${v}</li>`).join('') : ''}
+                <div class="site-navigation">
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trips.html" class="nav-link active">Trips</a>
+                        </li>
+                        <li><a href="riders_tips.html" class="nav-link">Ride</a></li>
+                        <li><a href="image.html" class="nav-link">Gallery</a></li>
+                        <li class="nav-item">
+                            <a href="blog.html" class="nav-link">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
                     </ul>
-                  </div>
                 </div>
-              </div>
             </div>
-            ${trek.itinerary ? `<div class="row trip-section"><div class="col-12"><h3>Itinerary</h3>${trek.itinerary.map(day => `<div class='itinerary-day'><strong>Day ${day.day || ''}: ${day.title || ''}</strong>${day.altitude ? ` <span class='badge badge-info'>${day.altitude}</span>` : ''}<ul>${day.details ? day.details.map(d => `<li>${d}</li>`).join('') : ''}</ul>${day.walkTime ? `<span class='trip-label'>Walk Time:</span> ${day.walkTime}<br>` : ''}${day.driveTime ? `<span class='trip-label'>Drive Time:</span> ${day.driveTime}<br>` : ''}</div>`).join('')}</div></div>` : ''}
-          </div>
-        `;
-        document.getElementById('trip-content').innerHTML = html;
-      }
-      loadTrip();
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="trip-detail-hero d-flex align-items-center justify-content-center">
+        <div class="trip-detail-hero-content">
+            <h1 id="trip-title">Trip Details</h1>
+        </div>
+    </section>
+    <!-- Trip Details Section -->
+    <section class="trip-detail-section">
+        <div class="container">
+            <button class="back-btn" onclick="window.location.href='trips.html'">
+                <i class="fas fa-arrow-left"></i> Back to Trips
+            </button>
+            <div class="trip-detail-card" id="trip-detail-card">
+                <!-- Trip details will be rendered here -->
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Trek Nepal Now</h3>
+            <p>Your trusted partner for Himalayan adventures</p>
+            <div class="social-links">
+                <a href="https://instagram.com/treknepalnow7" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/treknepalnow7" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://youtube.com/Treknepalnow-gaa" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +977-9806689146</p>
+                <p><i class="fas fa-envelope"></i> gaajohn66@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lakeside, Pokhara, Nepal</p>
+            </div>
+            <div class="mt-4">
+                <p>&copy; 2025 Trek Nepal Now. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Same trekData as in trips.html
+        const trekData = {
+            "treks": [
+                {
+                    "title": "Mardi Himal Trek",
+                    "duration": "6 Days / 5 Nights",
+                    "region": "Annapurna",
+                    "maxAltitude": "4500m",
+                    "difficulty": "Moderate",
+                    "accommodation": ["Tea houses", "Homestays"],
+                    "bestSeasons": ["March-May", "September-November"],
+                    "pricing": {
+                        "2-3 People": 360,
+                        "4-6 People": 300,
+                        "7+ People": 270
+                    },
+                    "highlights": [
+                        "Stunning ridge trail with panoramic mountain views",
+                        "Unbeatable sunrise & Himalayan scenery",
+                        "Quiet off-the-beaten path",
+                        "Beautiful jungle walk with views of Machhapuchhre"
+                    ],
+                    "image": "images/img_1.jpg",
+                    "id": "mardi-himal"
+                },
+                {
+                    "title": "Ghorepani Poon Hill Trek",
+                    "duration": "5 Days / 4 Nights",
+                    "region": "Annapurna Region",
+                    "maxAltitude": "3210m",
+                    "difficulty": "Easy to Moderate",
+                    "bestFor": ["First-time trekkers", "Families", "Photographers"],
+                    "pricePackages": {
+                        "Standard": { "price": 350 },
+                        "Budget": { "price": 180 },
+                        "Luxury": { "price": 500 }
+                    },
+                    "highlights": [
+                        "Sunrise view from Poon Hill (Annapurna & Dhaulagiri ranges)",
+                        "Traditional Gurung & Magar villages",
+                        "Rhododendron forests & waterfalls",
+                        "Live local experience with homestays"
+                    ],
+                    "image": "images/img_2.jpg",
+                    "id": "ghorepani-poon-hill"
+                },
+                {
+                    "title": "Annapurna Base Camp Trek",
+                    "duration": "12-15 Days",
+                    "region": "Annapurna",
+                    "maxAltitude": "4130m",
+                    "difficulty": "Moderate",
+                    "pricing": { "Standard": 650 },
+                    "highlights": [
+                        "360-degree mountain panorama",
+                        "Diverse landscapes and cultures",
+                        "Natural hot springs",
+                        "Close-up views of Annapurna massif"
+                    ],
+                    "image": "images/img_3.jpg",
+                    "id": "annapurna-base-camp"
+                },
+                {
+                    "title": "Everest Base Camp Trek",
+                    "duration": "16-18 Days",
+                    "region": "Everest",
+                    "maxAltitude": "5364m",
+                    "difficulty": "Hard",
+                    "pricing": { "Standard": 1200 },
+                    "highlights": [
+                        "World's highest base camp",
+                        "Sherpa culture and monasteries",
+                        "Breathtaking mountain views",
+                        "Adventure of a lifetime"
+                    ],
+                    "image": "images/img_4.jpg",
+                    "id": "everest-base-camp"
+                },
+                {
+                    "title": "Langtang Valley Trek",
+                    "duration": "8-10 Days",
+                    "region": "Langtang",
+                    "maxAltitude": "4984m",
+                    "difficulty": "Moderate",
+                    "pricing": { "Standard": 450 },
+                    "highlights": [
+                        "Tamang and Tibetan culture",
+                        "Beautiful valley and glaciers",
+                        "Less crowded trails",
+                        "Sacred lakes and views"
+                    ],
+                    "image": "images/img_5.jpg",
+                    "id": "langtang-valley"
+                },
+                {
+                    "title": "Manaslu Circuit Trek",
+                    "duration": "14-18 Days",
+                    "region": "Manaslu",
+                    "maxAltitude": "5106m",
+                    "difficulty": "Hard",
+                    "pricing": { "Standard": 950 },
+                    "highlights": [
+                        "Remote and wild terrain",
+                        "Cultural diversity",
+                        "Spectacular mountain views",
+                        "Challenging high passes"
+                    ],
+                    "image": "images/img_6.jpg",
+                    "id": "manaslu-circuit"
+                },
+                {
+                    "title": "Upper Mustang Trek",
+                    "duration": "12-16 Days",
+                    "region": "Mustang",
+                    "maxAltitude": "4200m",
+                    "difficulty": "Moderate",
+                    "pricing": { "Standard": 1100 },
+                    "highlights": [
+                        "Ancient Tibetan culture",
+                        "Unique desert landscape",
+                        "Forbidden Kingdom",
+                        "Ancient caves and monasteries"
+                    ],
+                    "image": "images/img_1.jpg",
+                    "id": "upper-mustang"
+                },
+                {
+                    "title": "Dhaulagiri Circuit Trek",
+                    "duration": "18-20 Days",
+                    "region": "Dhaulagiri",
+                    "maxAltitude": "5360m",
+                    "difficulty": "Hard",
+                    "pricing": { "Standard": 1300 },
+                    "highlights": [
+                        "World's 7th highest peak",
+                        "Remote wilderness",
+                        "Technical challenges",
+                        "Pristine mountain environment"
+                    ],
+                    "image": "images/img_2.jpg",
+                    "id": "dhaulagiri-circuit"
+                }
+            ]
+        };
+        function getDifficultyClass(difficulty) {
+            if (!difficulty) return '';
+            if (difficulty.toLowerCase().includes('easy')) return 'difficulty-easy';
+            if (difficulty.toLowerCase().includes('moderate')) return 'difficulty-moderate';
+            return 'difficulty-hard';
+        }
+        function getPriceTable(trek) {
+            let html = '';
+            if (trek.pricing) {
+                html += '<table class="trip-pricing-table">';
+                html += '<tr><th>Package</th><th>Price (USD)</th></tr>';
+                for (const key in trek.pricing) {
+                    html += `<tr><td>${key}</td><td>$${typeof trek.pricing[key]==='object'? trek.pricing[key].price : trek.pricing[key]}</td></tr>`;
+                }
+                html += '</table>';
+            } else if (trek.pricePackages) {
+                html += '<table class="trip-pricing-table">';
+                html += '<tr><th>Package</th><th>Price (USD)</th></tr>';
+                for (const key in trek.pricePackages) {
+                    html += `<tr><td>${key}</td><td>$${trek.pricePackages[key].price}</td></tr>`;
+                }
+                html += '</table>';
+            } else {
+                html = '<p>Contact us for pricing details.</p>';
+            }
+            return html;
+        }
+        function getQueryParam(name) {
+            const url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+        function renderTripDetail() {
+            const trekIndex = getQueryParam('trek');
+            const trek = trekData.treks[trekIndex];
+            if (!trek) {
+                document.getElementById('trip-title').textContent = 'Trip Not Found';
+                document.getElementById('trip-detail-card').innerHTML = '<p>Sorry, the requested trip could not be found.</p>';
+                return;
+            }
+            document.getElementById('trip-title').textContent = trek.title;
+            let meta = '';
+            meta += `<span><i class='fas fa-map-marker-alt'></i> ${trek.region || ''}</span>`;
+            meta += `<span><i class='fas fa-clock'></i> ${trek.duration || ''}</span>`;
+            meta += `<span><i class='fas fa-mountain'></i> ${trek.maxAltitude || ''}</span>`;
+            if (trek.difficulty) {
+                meta += `<span class='difficulty-badge ${getDifficultyClass(trek.difficulty)}'>${trek.difficulty}</span>`;
+            }
+            let highlights = '';
+            if (trek.highlights && trek.highlights.length) {
+                highlights = '<div class="trip-highlights"><h5>Highlights</h5><ul>' + trek.highlights.map(h => `<li>${h}</li>`).join('') + '</ul></div>';
+            }
+            let accommodation = '';
+            if (trek.accommodation) {
+                accommodation = `<p><strong>Accommodation:</strong> ${trek.accommodation.join(', ')}</p>`;
+            }
+            let bestSeasons = '';
+            if (trek.bestSeasons) {
+                bestSeasons = `<p><strong>Best Seasons:</strong> ${trek.bestSeasons.join(', ')}</p>`;
+            }
+            let bestFor = '';
+            if (trek.bestFor) {
+                bestFor = `<p><strong>Best For:</strong> ${trek.bestFor.join(', ')}</p>`;
+            }
+            let pricing = getPriceTable(trek);
+            document.getElementById('trip-detail-card').innerHTML = `
+                <img src="${trek.image || 'images/img_1.jpg'}" alt="${trek.title}" class="trip-detail-image">
+                <div class="trip-meta">${meta}</div>
+                ${accommodation}
+                ${bestSeasons}
+                ${bestFor}
+                ${highlights}
+                <div class="trip-pricing">
+                    <h5>Pricing</h5>
+                    ${pricing}
+                </div>
+            `;
+        }
+        document.addEventListener('DOMContentLoaded', renderTripDetail);
     </script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
-
+</body>
+</html> 

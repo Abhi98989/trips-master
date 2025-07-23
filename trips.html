@@ -1,294 +1,699 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <title>Trips &mdash; Website Template by Colorlib</title>
+<head>
+    <title>Trips &mdash; Trek Nepal Now</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
-
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-  </head>
-
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
     
-    <div class="site-wrap" id="home-section">
+    <style>
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #17a2b8;
+            --accent-color: #ffc107;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
 
-      <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-          <div class="site-mobile-menu-close mt-3">
-            <span class="icon-close2 js-menu-toggle"></span>
-          </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-      </div>
+        body {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
 
+        .site-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .site-logo img {
+            height: 50px;
+        }
 
-      <header class="site-navbar site-navbar-target" role="banner">
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
 
-        <div class="container">
-          <div class="row align-items-center position-relative">
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
 
-            <div class="col-3 ">
-              <div class="site-logo">
-                <a href="index.html" class="font-weight-bold">
-                  <img src="images/logo.png" alt="Image" class="img-fluid">
-                </a>
-              </div>
-            </div>
+        .hero-section {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.9), rgba(23, 162, 184, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e8" width="1200" height="600"/><path fill="%23d4edda" d="M0,300L48,316.7C96,333,192,367,288,350C384,333,480,267,576,233.3C672,200,768,200,864,216.7C960,233,1056,267,1152,266.7C1248,267,1344,233,1392,216.7L1440,200V600H1392C1344,600,1248,600,1152,600C1056,600,960,600,864,600C768,600,672,600,576,600C480,600,384,600,288,600C192,600,96,600,48,600H0Z"/></svg>');
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
 
-            <div class="col-9  text-right">
-              
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-              <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
 
-              
+        .trips-section {
+            padding: 80px 0;
+            background: var(--light-color);
+            min-height: calc(100vh - 350px); /* 350px is the hero min-height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
 
-              <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li><a href="index.html" class="nav-link">Home</a></li>
-                  <li><a href="about.html" class="nav-link">About</a></li>
-                  <li class="active"><a href="trips.html" class="nav-link">Trips</a></li>
-                  <li><a href="blog.html" class="nav-link">Blog</a></li>
-                  <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
+        .section-heading h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .trip-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .trip-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .trip-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .trip-card:hover .trip-image img {
+            transform: scale(1.1);
+        }
+
+        .trip-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .difficulty-easy {
+            background: rgba(40, 167, 69, 0.9);
+            color: white;
+        }
+
+        .difficulty-moderate {
+            background: rgba(255, 193, 7, 0.9);
+            color: var(--dark-color);
+        }
+
+        .difficulty-hard {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+        }
+
+        .trip-content {
+            padding: 25px;
+        }
+
+        .trip-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .trip-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .trip-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trip-highlights {
+            margin-bottom: 20px;
+        }
+
+        .trip-highlights ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .trip-highlights li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .trip-highlights li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .price-section {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-from {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .show-more-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 40px auto;
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+        }
+
+        .trip-card.hidden {
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
             
-          </div>
-        </div>
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-heading h2 {
+                font-size: 2.2rem;
+            }
+            
+            .trip-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
 
-      </header>
-
-    <div class="ftco-blocks-cover-1">
-      <div class="site-section-cover overlay" style="background-image: url('images/hero_1.jpg')">
+<body>
+    <!-- Navigation -->
+    <nav class="site-navbar">
         <div class="container">
-          <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-5" data-aos="fade-up">
-              <h1 class="mb-3 text-white">Trips List</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores doloribus officia iste. Dolores.</p>
-              
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="site-logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Trek Nepal Now" class="img-fluid">
+                    </a>
+                </div>
+                
+                <div class="site-navigation">
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trips.html" class="nav-link active">Trips</a>
+                        </li>
+                        <li><a href="riders_tips.html" class="nav-link">Ride</a></li>
+                        <li><a href="image.html" class="nav-link">Gallery</a></li>
+                        <li class="nav-item">
+                            <a href="blog.html" class="nav-link">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </nav>
 
-
-    <div class="site-section">
-
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-7">
-            <div class="heading-39101 mb-5">
-              <span class="backdrop text-center">Journey</span>
-              <span class="subtitle-39191">Journey</span>
-              <h3>Your Journey Starts Here</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$200.00</a>
-                <h2 class="mb-1"><a href="trip-single.html">Dignissimos debitis</a></h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$390.00</a>
-                <h2 class="mb-1"><a href="trip-single.html">Consectetur adipisicing</a></h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$180.00</a>
-                <h2 class="mb-1"><a href="trip-single.html">Temporibus aperiam</a></h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_4.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$600.00</a>
-                <h2 class="mb-1"><a href="trip-single.html">Expedita fugiat</a></h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_5.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$330.00</a>
-                <h2 class="mb-1"><a href="trip-single.html">Consectetur adipisicing</a></h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_6.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category bg-primary" href="#">$450.00</a>
-                <h2 class="mb-1"><a href="trip-single.html">Consectetur Amet</a></h2>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-
-    <div class="site-section py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="heading-39101 mb-5">
-              <span class="backdrop">Story</span>
-              <span class="subtitle-39191">Discover Story</span>
-              <h3>Our Story</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quae expedita fugiat quo incidunt, possimus temporibus aperiam eum, quaerat sapiente.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos debitis enim a pariatur molestiae.</p>
-          </div>
-          <div class="col-md-6" data-aos="fade-right">
-            <img src="images/traveler.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    
-
-    <footer class="site-footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <h2 class="footer-heading mb-3">Instagram</h2>
-            <div class="row">
-              <div class="col-4 gal_col">
-                <a href="#"><img src="images/insta_1.jpg" alt="Image" class="img-fluid"></a>
-              </div>
-              <div class="col-4 gal_col">
-                <a href="#"><img src="images/insta_2.jpg" alt="Image" class="img-fluid"></a>
-              </div>
-              <div class="col-4 gal_col">
-                <a href="#"><img src="images/insta_3.jpg" alt="Image" class="img-fluid"></a>
-              </div>
-              <div class="col-4 gal_col">
-                <a href="#"><img src="images/insta_4.jpg" alt="Image" class="img-fluid"></a>
-              </div>
-              <div class="col-4 gal_col">
-                <a href="#"><img src="images/insta_5.jpg" alt="Image" class="img-fluid"></a>
-              </div>
-              <div class="col-4 gal_col">
-                <a href="#"><img src="images/insta_6.jpg" alt="Image" class="img-fluid"></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 ml-auto">
-            <div class="row">
-              <div class="col-lg-6 ml-auto">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Terms of Service</a></li>
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <h2 class="footer-heading mb-4">Newsletter</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt odio iure animi ullam quam, deleniti rem!</p>
-                <form action="#" class="d-flex" class="subscribe">
-                  <input type="text" class="form-control mr-3" placeholder="Email">
-                  <input type="submit" value="Send" class="btn btn-primary">
-                </form>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-              <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    <!-- Hero Section -->
+    <section class="trips-hero" style="padding-top: 200px;">
+        <div class="trips-hero-overlay"></div>
+        <div class="container trips-hero-content d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 350px;">
+            <span class="badge bg-warning text-dark mb-3" style="font-size: 1.1rem; letter-spacing: 2px; padding: 0.7em 1.5em; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">Your Journey Starts Here</span>
+            <h1 class="display-3 fw-bold mb-3" style="text-shadow: 2px 2px 16px rgba(0,0,0,0.4);">Experience the Magic of the Himalayas</h1>
+            <p class="lead mb-4" style="max-width: 600px; color: #fff; text-shadow: 1px 1px 8px rgba(0,0,0,0.5);">
+                Embark on a life-changing adventure. Every trek is a new story—discover breathtaking landscapes, vibrant cultures, and the spirit of true exploration.
             </p>
-            </div>
-          </div>
-
+            <a href="#trips-container" class="btn btn-lg btn-primary px-5 py-3 shadow">Explore Treks</a>
         </div>
-      </div>
+    </section>
+
+    <!-- Trips Section -->
+    <section class="trips-section">
+        <div class="container">
+            <!-- Section heading moved to hero -->
+            
+            <div class="row" id="trips-container">
+                <!-- Trip cards will be dynamically generated here -->
+            </div>
+            
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading more trips...</p>
+            </div>
+            
+            <button class="show-more-btn" id="show-more-btn" onclick="showMoreTrips()">
+                Show More Trips
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Trek Nepal Now</h3>
+            <p>Your trusted partner for Himalayan adventures</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/treknepalnow7" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/treknepalnow7" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://youtube.com/Treknepalnow-gaa" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +977-9806689146</p>
+                <p><i class="fas fa-envelope"></i> gaajohn66@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lakeside, Pokhara, Nepal</p>
+            </div>
+            
+            <div class="mt-4">
+                <p>&copy; 2025 Trek Nepal Now. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Trek data from your JSON
+        const trekData = {
+            "treks": [
+                {
+                    "title": "Mardi Himal Trek",
+                    "duration": "6 Days / 5 Nights",
+                    "region": "Annapurna",
+                    "maxAltitude": "4500m",
+                    "difficulty": "Moderate",
+                    "accommodation": ["Tea houses", "Homestays"],
+                    "bestSeasons": ["March-May", "September-November"],
+                    "pricing": {
+                        "2-3 People": 360,
+                        "4-6 People": 300,
+                        "7+ People": 270
+                    },
+                    "highlights": [
+                        "Stunning ridge trail with panoramic mountain views",
+                        "Unbeatable sunrise & Himalayan scenery",
+                        "Quiet off-the-beaten path",
+                        "Beautiful jungle walk with views of Machhapuchhre"
+                    ],
+                    "image": "images/img_1.jpg",
+                    "id": "mardi-himal"
+                },
+                {
+                    "title": "Ghorepani Poon Hill Trek",
+                    "duration": "5 Days / 4 Nights",
+                    "region": "Annapurna Region",
+                    "maxAltitude": "3210m",
+                    "difficulty": "Easy to Moderate",
+                    "bestFor": ["First-time trekkers", "Families", "Photographers"],
+                    "pricePackages": {
+                        "Standard": { "price": 350 },
+                        "Budget": { "price": 180 },
+                        "Luxury": { "price": 500 }
+                    },
+                    "highlights": [
+                        "Sunrise view from Poon Hill (Annapurna & Dhaulagiri ranges)",
+                        "Traditional Gurung & Magar villages",
+                        "Rhododendron forests & waterfalls",
+                        "Live local experience with homestays"
+                    ],
+                    "image": "images/img_2.jpg",
+                    "id": "ghorepani-poon-hill"
+                },
+                {
+                    "title": "Annapurna Base Camp Trek",
+                    "duration": "12-15 Days",
+                    "region": "Annapurna",
+                    "maxAltitude": "4130m",
+                    "difficulty": "Moderate",
+                    "pricing": { "Standard": 650 },
+                    "highlights": [
+                        "360-degree mountain panorama",
+                        "Diverse landscapes and cultures",
+                        "Natural hot springs",
+                        "Close-up views of Annapurna massif"
+                    ],
+                    "image": "images/img_3.jpg",
+                    "id": "annapurna-base-camp"
+                },
+                {
+                    "title": "Everest Base Camp Trek",
+                    "duration": "16-18 Days",
+                    "region": "Everest",
+                    "maxAltitude": "5364m",
+                    "difficulty": "Hard",
+                    "pricing": { "Standard": 1200 },
+                    "highlights": [
+                        "World's highest base camp",
+                        "Sherpa culture and monasteries",
+                        "Breathtaking mountain views",
+                        "Adventure of a lifetime"
+                    ],
+                    "image": "images/img_4.jpg",
+                    "id": "everest-base-camp"
+                },
+                {
+                    "title": "Langtang Valley Trek",
+                    "duration": "8-10 Days",
+                    "region": "Langtang",
+                    "maxAltitude": "4984m",
+                    "difficulty": "Moderate",
+                    "pricing": { "Standard": 450 },
+                    "highlights": [
+                        "Tamang and Tibetan culture",
+                        "Beautiful valley and glaciers",
+                        "Less crowded trails",
+                        "Sacred lakes and views"
+                    ],
+                    "image": "images/img_5.jpg",
+                    "id": "langtang-valley"
+                },
+                {
+                    "title": "Manaslu Circuit Trek",
+                    "duration": "14-18 Days",
+                    "region": "Manaslu",
+                    "maxAltitude": "5106m",
+                    "difficulty": "Hard",
+                    "pricing": { "Standard": 950 },
+                    "highlights": [
+                        "Remote and wild terrain",
+                        "Cultural diversity",
+                        "Spectacular mountain views",
+                        "Challenging high passes"
+                    ],
+                    "image": "images/img_6.jpg",
+                    "id": "manaslu-circuit"
+                },
+                {
+                    "title": "Upper Mustang Trek",
+                    "duration": "12-16 Days",
+                    "region": "Mustang",
+                    "maxAltitude": "4200m",
+                    "difficulty": "Moderate",
+                    "pricing": { "Standard": 1100 },
+                    "highlights": [
+                        "Ancient Tibetan culture",
+                        "Unique desert landscape",
+                        "Forbidden Kingdom",
+                        "Ancient caves and monasteries"
+                    ],
+                    "image": "images/img_1.jpg",
+                    "id": "upper-mustang"
+                },
+                {
+                    "title": "Dhaulagiri Circuit Trek",
+                    "duration": "18-20 Days",
+                    "region": "Dhaulagiri",
+                    "maxAltitude": "5360m",
+                    "difficulty": "Hard",
+                    "pricing": { "Standard": 1300 },
+                    "highlights": [
+                        "World's 7th highest peak",
+                        "Remote wilderness",
+                        "Technical challenges",
+                        "Pristine mountain environment"
+                    ],
+                    "image": "images/img_2.jpg",
+                    "id": "dhaulagiri-circuit"
+                }
+            ]
+        };
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.0.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/aos.js"></script>
+        let displayedTrips = 0;
+        const tripsPerLoad = 6;
 
-    <script src="js/main.js"></script>
+        function getDifficultyClass(difficulty) {
+            if (difficulty.toLowerCase().includes('easy')) return 'difficulty-easy';
+            if (difficulty.toLowerCase().includes('moderate')) return 'difficulty-moderate';
+            return 'difficulty-hard';
+        }
 
-  </body>
+        function getPrice(trek) {
+            if (trek.pricing) {
+                if (trek.pricing['2-3 People']) return trek.pricing['2-3 People'];
+                if (trek.pricing['4-6 People']) return trek.pricing['4-6 People'];
+                if (trek.pricing.Standard) return trek.pricing.Standard.price || trek.pricing.Standard;
+            }
+            if (trek.pricePackages && trek.pricePackages.Standard) {
+                return trek.pricePackages.Standard.price;
+            }
+            return 'Contact Us';
+        }
 
+        function createTripCard(trek, index) {
+            const price = getPrice(trek);
+            const priceDisplay = typeof price === 'number' ? `$${price}` : price;
+            return `
+                <div class="col-lg-4 col-md-6 mb-4 trip-card-container ${displayedTrips >= tripsPerLoad ? 'hidden' : ''}">
+                    <div class="trip-card" onclick="window.location.href='trip-single.html?trek=${index}'" style="cursor:pointer;">
+                        <div class="trip-image">
+                            <img src="${trek.image || 'images/img_1.jpg'}" alt="${trek.title}">
+                            <div class="trip-badge">${priceDisplay}</div>
+                            <div class="difficulty-badge ${getDifficultyClass(trek.difficulty || trek.trekGrade)}">${trek.difficulty || trek.trekGrade || ''}</div>
+                        </div>
+                        <div class="trip-content">
+                            <h3 class="trip-title">${trek.title}</h3>
+                            <div class="trip-meta">
+                                <span><i class="fas fa-clock"></i> ${trek.duration || ''}</span>
+                                <span><i class="fas fa-mountain"></i> ${trek.maxAltitude || ''}</span>
+                            </div>
+                            <div class="trip-highlights">
+                                <ul>
+                                    ${(trek.highlights || []).slice(0, 2).map(highlight => `<li>${highlight}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="price-section">
+                                <span class="price-from">From</span>
+                                <span class="price-amount">${priceDisplay}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadTrips() {
+            const container = document.getElementById('trips-container');
+            container.innerHTML = '';
+            
+            trekData.treks.forEach((trek, index) => {
+                container.innerHTML += createTripCard(trek, index);
+                if (index < tripsPerLoad) displayedTrips++;
+            });
+            
+            if (trekData.treks.length <= tripsPerLoad) {
+                document.getElementById('show-more-btn').style.display = 'none';
+            }
+        }
+
+        function showMoreTrips() {
+            const loading = document.getElementById('loading');
+            const showMoreBtn = document.getElementById('show-more-btn');
+            
+            loading.style.display = 'block';
+            showMoreBtn.style.display = 'none';
+            
+            setTimeout(() => {
+                const hiddenCards = document.querySelectorAll('.trip-card-container.hidden');
+                const cardsToShow = Math.min(tripsPerLoad, hiddenCards.length);
+                
+                for (let i = 0; i < cardsToShow; i++) {
+                    hiddenCards[i].classList.remove('hidden');
+                    displayedTrips++;
+                }
+                
+                loading.style.display = 'none';
+                
+                if (hiddenCards.length > cardsToShow) {
+                    showMoreBtn.style.display = 'block';
+                } else {
+                    showMoreBtn.innerHTML = 'All Trips Loaded';
+                    showMoreBtn.disabled = true;
+                    showMoreBtn.style.opacity = '0.6';
+                }
+            }, 1000);
+        }
+
+        // openTripDetail removed, now handled inline
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTrips();
+        });
+    </script>
+</body>
 </html>
-
