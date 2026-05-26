@@ -1,0 +1,21 @@
+{
+    "name": "trips-website",
+    "version": "1.0.0",
+    "description": "Trips travel website",
+    "main": "index.html",
+    "scripts": {
+        "dev": "live-server",
+        "sass": "sass scss:css --watch",
+        "build": "sass scss:css"
+    },
+    "keywords": [
+        "trips",
+        "travel"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "live-server": "^1.2.2",
+        "sass": "^1.69.0"
+    }
+}
